@@ -7,23 +7,21 @@ import Dash from "./components/Dash";
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/dashboard" element={<Dash />} />
-        </Routes>
-      </Router>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/dashboard" element={<Dash />} />
+      </Routes>
+    </Router>
   );
 }
 
