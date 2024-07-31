@@ -55,6 +55,7 @@ const Dashboard = () => {
           <PieChart title="Score Statistics" data={scoreData} />
           <PieChart title="Internship Statistics" data={internshipData} />
           <LineChart title="Acquisition Costs" data={acquisitionData} />
+
         </div>
         <div className="w-full h-fit flex flex-wrap justify-between space-y-4 md:space-y-0 md:space-x-4">
           <DataTable title="ATD Figures" />

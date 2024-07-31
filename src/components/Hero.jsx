@@ -23,10 +23,10 @@ const Hero = () => {
   );
 };
 
-const Card = ({ title, image}) => {
 
+const Card = ({ title, image}) => {
   const handleCardClick = () => {
-    window.location.href = '/dashboard'; 
+    window.location.href = '/dashboard';
   };
 
   return (

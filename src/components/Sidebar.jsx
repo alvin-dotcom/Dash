@@ -23,7 +23,7 @@ const Sidebar = () => {
     <div
       className="bg-blue-600 text-white w-1/4 md:w-1/5 lg:w-1/6 flex flex-col rounded-lg border border-blue-700 ml-4"
       style={{
-        height: "calc(100vh - 10rem)",
+        height: "calc(100vh - 1rem)",
         padding: "1rem",
         boxSizing: "border-box",
       }}
