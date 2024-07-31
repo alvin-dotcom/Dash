@@ -24,22 +24,25 @@ const ctScoreData = [
   { name: "Civil", score: 15 },
   { name: "BCA", score: 10 },
 ];
-const ALTERNATE_COLORS = ["#00C49F", "#8884d8"];
 
-const BarChart = ({ title }) => {
+
+
+const BarChart = ({ title, data }) => {
+  const ALTERNATE_COLORS = ["#00C49F", "#8884d8"];
   return (
     <div className="bg-white rounded-lg shadow-md p-4 w-full md:w-[48%] lg:w-[66%]">
       <h3 className="font-bold mb-2">{title}</h3>
 
       <div className="h-fit rounded-md">
         <ResponsiveContainer width="100%" height={400}>
-          <BChart data={ctScoreData}>
+          <BChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
             <Legend />
             <Bar dataKey="score" fill="#0088FE" />
+            
           </BChart>
         </ResponsiveContainer>
       </div>
