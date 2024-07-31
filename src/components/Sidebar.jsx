@@ -1,19 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const menuItems = [
-    "Research",
-    "Placement",
-    "Student Metrics",
-    "Higher Studies",
-    "Non-Academic Details",
-    "Human Resources (HR)",
-    "Infrastructure",
-    "IT",
-    "Hostel and Mess",
-    "Finance",
-    "Department View",
-    "Faculty and Student Details",
+    { name: "Student Operations", path: "/dashboard/student-operations" },
+    { name: "Human Resources", path: "/dashboard/human-resources" },
+    { name: "Finance", path: "/dashboard/finance" },
+    { name: "Placements", path: "/dashboard/placements" },
+    { name: "Strategic Projects", path: "/dashboard/strategic-projects" },
   ];
 
   return (
@@ -27,12 +21,11 @@ const Sidebar = () => {
     >
       <div className="flex flex-col space-y-0.5 overflow-y-auto">
         {menuItems.map((item, index) => (
-          <button
-            key={index}
-            className="hover:bg-blue-700 rounded text-left p-2"
-          >
-            {item}
-          </button>
+          <Link key={index} to={item.path}>
+            <button className="hover:bg-blue-700 rounded text-left p-2">
+              {item.name}
+            </button>
+          </Link>
         ))}
       </div>
     </div>

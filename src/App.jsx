@@ -4,6 +4,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Dash from "./components/Dash";
+import Sidebar from "./components/Sidebar";
+import StudentOperations from "./components/StudentOperations";
+import HumanResources from "./components/HumanResources";
+import Finance from "./components/Finance";
+import Placements from "./components/Placements";
+import StrategicProjects from "./components/StrategicProjects";
 
 function App() {
   return (
@@ -19,8 +25,13 @@ function App() {
             </>
           }
         />
-        <Route path="/dashboard" element={<Dash />} />
-      </Routes>
+            <Route path="/dashboard" element={<Dash />} />
+            <Route path="/dashboard/student-operations" element={<StudentOperations />} />
+            <Route path="/dashboard/human-resources" element={<HumanResources />} />
+            <Route path="/dashboard/finance" element={<Finance />} />
+            <Route path="/dashboard/placements" element={<Placements />} />
+            <Route path="/dashboard/strategic-projects" element={<StrategicProjects />} />
+          </Routes>
     </Router>
   );
 }
