@@ -10,6 +10,7 @@ import HumanResources from "./components/HumanResources";
 import Finance from "./components/Finance";
 import Placements from "./components/Placements";
 import StrategicProjects from "./components/StrategicProjects";
+import Research from './components/Research'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/dashboard/finance" element={<Finance />} />
             <Route path="/dashboard/placements" element={<Placements />} />
             <Route path="/dashboard/strategic-projects" element={<StrategicProjects />} />
+            <Route path="/dashboard/research" element={<Research />} />
           </Routes>
     </Router>
   );

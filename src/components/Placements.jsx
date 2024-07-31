@@ -1,73 +1,148 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Barchart from "./Barchart";
-import DataTable from "./DataTable";
-import { PieChart } from "./PieChart";
-import { LineChart } from "./LineChart";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  BarChart as BChart,
+  Bar,
+} from "recharts";
 
-const absentData = [
-  { name: "Absent", value: 5 },
-  { name: "OD", value: 2 },
-  { name: "Present", value: 3 },
+const DeptwisePlaced = [
+  { name: "CSE", value: 50 },
+  { name: "EEE", value: 20 },
+  { name: "Mech", value: 30 },
+  { name: "Civil", value: 20 },
+  { name: "Biotech", value: 30 }
 ];
 
-const scoreData = [
-  { name: "Above 90%", value: 30 },
-  { name: "Above 80%", value: 15 },
-  { name: "Above 70%", value: 35 },
-  { name: "Below 60%", value: 20 },
+const OfferMetrics = [
+  { name: "Marquee", value: 50 },
+  { name: "Super Dream", value: 20 },
+  { name: "Dream", value: 30 },
+  { name: "Off-Campus", value: 20 },
 ];
 
-const internshipData = [
-  { name: "Paid", value: 10 },
-  { name: "Unpaid", value: 20 },
-  { name: "NO ITS", value: 48 },
-  { name: "Paying", value: 22 },
+const EligibilityData = [
+  {
+    name: "CSE",
+    Eligible: 4000,
+    Placed: 2400,
+    amt: 2400,
+  },
+  {
+    name: "EEE",
+    Eligible: 3000,
+    Placed: 1398,
+    amt: 2210,
+  },
+  {
+    name: "Mech",
+    Eligible: 2000,
+    Placed: 9800,
+    amt: 2290,
+  },
+  {
+    name: "Civil",
+    Eligible: 2780,
+    Placed: 3908,
+    amt: 2000,
+  },
+  {
+    name: "Biotech",
+    Eligible: 1890,
+    Placed: 4800,
+    amt: 2181,
+  },
+  {
+    name: "ECE",
+    Eligible: 2390,
+    Placed: 3800,
+    amt: 2500,
+  },
 ];
 
-const acquisitionData = [
-  { year: 2016, cost: 10000 },
-  { year: 2017, cost: 15000 },
-  { year: 2018, cost: 20000 },
-  { year: 2019, cost: 30000 },
-  { year: 2020, cost: 25000 },
-  { year: 2021, cost: 35000 },
-];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#AF19FF"];
 
-const ctScoreData = [
-  { name: "CSE", score: 25 },
-  { name: "CS", score: 60 },
-  { name: "CC", score: 40 },
-  { name: "GT", score: 90 },
-  { name: "BDA", score: 20 },
-  { name: "BT", score: 50 },
-  { name: "IOT", score: 70 },
-  { name: "EEE", score: 95 },
-  { name: "Mech", score: 80 },
-  { name: "Civil", score: 15 },
-  { name: "BCA", score: 10 },
-];
-
-const Placements = () => {
+const StraightPie = ({ data, col, title }) => {
   return (
-    <>
-      <div className="flex h-screen overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-md mx-auto">
+      <h2 className="text-xl font-bold m-8">{title}</h2>
+      <ResponsiveContainer width="100%" height={200}>
+        <PieChart>
+          <Pie
+            dataKey="value"
+            data={data}
+            cx="50%"
+            cy="100%"
+            startAngle={180} 
+            endAngle={0} 
+            outerRadius={120}
+            fill={col}
+            label={({ name, percent }) =>
+              `${name} ${(percent * 100).toFixed(0)}%`
+            }
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
+// BarChart functional component
+const EligibilityBarChart = ({ title, data, col1, col2 }) => {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-2xl mx-auto mt-6">
+      <h2 className="text-xl font-bold m-8">{title}</h2>
+      <ResponsiveContainer width="100%" height={300}>
+        <BChart
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="Eligible" fill={col1} />
+          <Bar dataKey="Placed" fill={col2} />
+        </BChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
+const Finance = () => {
+  return (
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <div className="flex-1 flex flex-col p-4 overflow-auto ">
-        <div className="w-full flex flex-wrap gap-6 justify-around mb-8">
-          <PieChart title="Absent And OD" data={absentData} />
-          <PieChart title="Score Statisticss" data={scoreData} />
-          {/* <PieChart title="Internship Statistics" data={internshipData} /> */}
-          <LineChart title="Acquisition Cost" data={acquisitionData} />
-        </div>
-        <div className="w-full h-fit flex flex-wrap justify-between space-y-4 md:space-y-0 md:space-x-4">
-          <DataTable title="ATD Figures" />
-          <Barchart title="Average CT Score" />
-        </div>
+      <div className="flex-1 flex flex-col p-4 overflow-auto">
+      <div className="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 gap-15">
+      <StraightPie data={DeptwisePlaced} col={"#8884d8"} title={"Department-wise Placement"} />
+      <StraightPie data={OfferMetrics} col={"#8884d8"} title={"Offer Metrics"} />
+      </div>
+        <EligibilityBarChart title={"Eligibility Data"} data={EligibilityData} col1={"blue"} col2={"orange"} />
       </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default Placements
+export default Finance;

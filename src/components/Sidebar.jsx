@@ -11,6 +11,7 @@ const Sidebar = () => {
     { name: "Finance", path: "/dashboard/finance" },
     { name: "Placements", path: "/dashboard/placements" },
     { name: "Strategic Projects", path: "/dashboard/strategic-projects" },
+    {name: "Research", path: "/dashboard/research"}
   ];
 
   return (
