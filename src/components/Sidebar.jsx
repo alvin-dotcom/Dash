@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation(); // Get the current location object
+  const currentPath = location.pathname; // Extract the current path from location
+
   const menuItems = [
     { name: "Student Operations", path: "/dashboard/student-operations" },
     { name: "Human Resources", path: "/dashboard/human-resources" },
@@ -22,7 +25,11 @@ const Sidebar = () => {
       <div className="flex flex-col space-y-0.5 overflow-y-auto">
         {menuItems.map((item, index) => (
           <Link key={index} to={item.path}>
-            <button className="hover:bg-blue-700 rounded text-left p-2">
+            <button
+              className={`rounded text-left p-2 w-full ${
+                currentPath === item.path ? "bg-blue-700" : "hover:bg-blue-700"
+              }`}
+            >
               {item.name}
             </button>
           </Link>
