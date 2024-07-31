@@ -25,14 +25,14 @@ const internshipData = [
   { name: "Paying", value: 22 },
 ];
 
-const acquisitionData = [
-  { year: 2016, cost: 10000 },
-  { year: 2017, cost: 15000 },
-  { year: 2018, cost: 20000 },
-  { year: 2019, cost: 30000 },
-  { year: 2020, cost: 25000 },
-  { year: 2021, cost: 35000 },
-];
+// const acquisitionData = [
+//   { year: 2016, cost: 10000 },
+//   { year: 2017, cost: 15000 },
+//   { year: 2018, cost: 20000 },
+//   { year: 2019, cost: 30000 },
+//   { year: 2020, cost: 25000 },
+//   { year: 2021, cost: 35000 },
+// ];
 
 const ctScoreData = [
   { name: "CSE", score: 25 },
@@ -56,7 +56,6 @@ const Dashboard = () => {
           <PieChart title="Absent And OD" data={absentData} />
           <PieChart title="Score Statisticss" data={scoreData} />
           <PieChart title="Internship Statistics" data={internshipData} />
-          <LineChart title="Acquisition Costs" data={acquisitionData} />
         </div>
         <div className="w-full h-fit flex flex-wrap justify-between space-y-4 md:space-y-0 md:space-x-4">
           <DataTable title="ATD Figures" />

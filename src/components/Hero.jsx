@@ -3,9 +3,9 @@ import React, { useState } from "react";
 const Hero = () => {
   const titles = [
     "SRMIST - Engineering And Technology",
-    "SRMIST - Science And Humanities", 
-    "SRMIST - Dental College And Hospital ",
-    "SRMIST - Easwari Engineering College", 
+    "SRMIST - Science And Humanities",
+    "SRMIST - Dental College And Hospital",
+    "SRMIST - Easwari Engineering College",
     "SRMIST - SEAD",
     "SRMIST - Hotel Management",
   ];
@@ -27,12 +27,12 @@ const Card = ({ title }) => {
   const [liked, setLiked] = useState(false);
 
   const handleLike = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     setLiked(!liked);
   };
 
   const handleCardClick = () => {
-    window.location.href = '/dashboard'; 
+    window.location.href = '/dashboard';
   };
 
   return (
@@ -40,11 +40,13 @@ const Card = ({ title }) => {
       className="w-80 h-80 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 cursor-pointer"
       onClick={handleCardClick}
     >
-      <img
-        src="https://source.unsplash.com/random/300x300/?2"
-        alt=""
-        className="object-cover object-center w-full h-48 rounded-t-md dark:bg-gray-500"
-      />
+      <div className="w-full h-42 overflow-hidden rounded-t-md p-4 flex items-center justify-center">
+        <img
+          src="/Srmseal.png"
+          alt=""
+          className="object-contain w-40 max-h-40"
+        />
+      </div>
       <div className="flex flex-col justify-between p-6 space-y-4 h-32">
         <div className="space-y-2">
           <h2 className="text-lg font-semibold -tracking-tighter">
