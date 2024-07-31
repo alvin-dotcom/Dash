@@ -1,20 +1,23 @@
-import React from "react";
+import {React, useState} from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const menuItems = [
-    "Research",
-    "Placement",
-    "Student Metrics",
-    "Higher Studies",
-    "Non-Academic Details",
-    "Human Resources (HR)",
-    "Infrastructure",
-    "IT",
-    "Hostel and Mess",
-    "Finance",
-    "Department View",
-    "Faculty and Student Details",
+    {title: "Research", path: "/research"},
+    {title: "Placement", path: "/placement"},
+    {title: "Student Metrics", path: "/student-metrics"},
+    {title: "Higher Studies", path: "/higher-studies"},
+    {title: "Non-Academic Details", path: "/non-academic"},
+    {title: "Human Resources (HR)", path: "/hr"},
+    {title: "Infrastructure", path: "/infra"},
+    {title: "IT", path: "/it"},
+    {title: "Hostel and Mess", path: "/hostel"},
+    {title: "Finance", path: "/finance"},
+    {title: "Department View", path: "/departments"},
+    {title: "Faculty and Student Details", path: "/faculty"},
   ];
+
+  const [Tab, setTab]=useState(menuItems[0])
 
   return (
     <div
@@ -27,12 +30,14 @@ const Sidebar = () => {
     >
       <div className="flex flex-col space-y-0.5 overflow-y-auto">
         {menuItems.map((item, index) => (
-          <button
-            key={index}
-            className="hover:bg-blue-700 rounded text-left p-2"
-          >
-            {item}
-          </button>
+          <Link
+          key={index}
+          className={`hover:bg-blue-700 rounded text-left p-2 ${Tab === item ? "bg-blue-700" : ""}`}
+          onClick={() => setTab(item)}
+          to={item.path}
+        >
+            {item.title}
+          </Link>
         ))}
       </div>
     </div>

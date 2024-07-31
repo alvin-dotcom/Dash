@@ -1,8 +1,8 @@
 import React from "react";
-import Barchart from "./Barchart";
-import DataTable from "./DataTable";
-import { PieChart } from "./PieChart";
-import { LineChart } from "./LineChart";
+import Barchart from "../components/Barchart";
+import DataTable from "../components/DataTable";
+import { PieChart } from "../components/PieChart";
+import { LineChart } from "../components/LineChart";
 
 const absentData = [
   { name: "Absent", value: 5 },
@@ -46,7 +46,7 @@ const ctScoreData = [
   { name: "Civil", score: 15 },
   { name: "BCA", score: 10 },
 ];
-const Dashboard = () => {
+const Higher = () => {
   return (
     <div className="flex h-screen overflow-auto">
       <div className="flex-1 flex flex-col p-4 overflow-auto ml-1/4">
@@ -65,4 +65,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Higher;
